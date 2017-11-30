@@ -8,8 +8,8 @@ public class FoodRequirement : MonoBehaviour {
 
 
 	// Use this for initialization
-	void Start () {
-
+	virtual protected void Start () {
+		Comment();
 	}
 
 	// Update is called once per frame
@@ -21,7 +21,7 @@ public class FoodRequirement : MonoBehaviour {
 		Customer.commentText.text += ("\n" + comment);
 	}
 
-	public bool canAcceptFood(FoodProperty property){
-		return false;
+	virtual public bool canAcceptFood(FoodProperty property){
+		return true;
 	}
 }

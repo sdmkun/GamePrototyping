@@ -1,8 +1,8 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FoodReqHot : FoodRequirement {
+public class FoodReqDebu : FoodRequirement {
 
 	// Use this for initialization
 	override protected void Start () {
@@ -15,7 +15,7 @@ public class FoodReqHot : FoodRequirement {
 	}
 
 	override public bool canAcceptFood(FoodProperty property) {
-		if(property.GetProperty(FoodProperty.Property.Warmth) >= 7) {
+		if(property.GetPropertyBool(FoodProperty.PropertyBool.Vegetables) == true && property.GetProperty(FoodProperty.Property.Greasiness) >= 5) {
 			return true;
 		}
 		return false;

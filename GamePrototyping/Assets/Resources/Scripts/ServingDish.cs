@@ -10,7 +10,7 @@ public class ServingDish : MonoBehaviour {
 	[SerializeField] private GameObject[] preparationFoods;
 	[SerializeField] private float prepXstart, prepYstart, prepZstart;
 	[SerializeField] private float prepXinterval, prepYinterval, prepZinterval;
-	[SerializeField] private GameObject customerPrefab;
+	[SerializeField] private GameObject[] customerPrefabs;
 	[System.NonSerialized] public GameObject food;
 	public Customer customer = null;
 	// Use this for initialization
@@ -18,6 +18,7 @@ public class ServingDish : MonoBehaviour {
 		Customer.dish = this;
 		Customer.commentText = GameObject.Find("CustomerMessage").GetComponent<Text>();
 		CallNewCustomer();
+		Prepare();
 	}
 
 	// Update is called once per frame
@@ -58,8 +59,11 @@ public class ServingDish : MonoBehaviour {
 
 	// 新しい客を呼ぶ
 	public void CallNewCustomer() {
+		Prepare();
+		int num = Random.Range(0, customerPrefabs.Length);
 		if(customer == null) {
-			customer = Instantiate(customerPrefab).GetComponent<Customer>();
+
+			customer = Instantiate(customerPrefabs[num]).GetComponent<Customer>();
 		}
 	}
 }
