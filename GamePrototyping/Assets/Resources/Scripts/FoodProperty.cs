@@ -25,8 +25,9 @@ public class FoodProperty : MonoBehaviour {
 		MAX					// 要素数
 	};
 
-	private int[] property = new int[(int)Property.MAX];
-	private bool[] propertyBool = new bool[(int)PropertyBool.MAX];
+	[SerializeField] private string name;
+	[SerializeField] private int[] property = new int[(int)Property.MAX];
+	[SerializeField] private bool[] propertyBool = new bool[(int)PropertyBool.MAX];
 
 	// Use this for initialization
 	void Start () {
@@ -38,6 +39,9 @@ public class FoodProperty : MonoBehaviour {
 
 	}
 
+	public string GetName() {
+		return name;
+	}
 	public int GetProperty(Property p){
 		return property[(int)p];
 	}
